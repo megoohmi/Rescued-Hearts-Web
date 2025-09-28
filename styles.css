@@ -1124,79 +1124,52 @@ header nav {
 
 /* Mobile phones */
 @media (max-width: 480px) {
-  /* Hero & logos */
-  .hero-logo img,
-  .chero-logo img,
-  .maarte-logo img,
-  .maarte-text img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
+ /* ============================================
+   MOBILE HERO SECTIONS
+   ============================================ */
+.h-hero,
+.a-hero,
+.c-hero {
+  background-size: contain; /* ensures full image fits horizontally */
+  background-position: top center; /* keeps the top visible */
+  height: auto; /* allow height to adjust automatically */
+  min-height: 100vh; /* at least full screen */
+}
 
-  /* Feature cards & boxes */
-  .features-cards,
-  .cards-section,
-  .feature-boxes,
-  .screenshot-cards {
-    flex-direction: column;
-    gap: 20px;
-  }
+/* Hero logos scale */
+.hero-logo img,
+.chero-logo img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
 
-  .feature-card,
-  .card {
-    width: 90%;
-    max-width: 180px;
-    padding: 10px;
-  }
+/* ============================================
+   MOBILE FOOTER ADJUSTMENTS
+   ============================================ */
+.footer {
+  padding: 150px 20px 50px; /* pushes content down, adds bottom padding */
+  text-align: center;
+}
 
-  .feature-boxes .feature-png {
-    max-width: 90%;
-  }
+.footer p {
+  margin: 300px auto 20px; /* pushes paragraph further down */
+  font-size: 14px;
+  max-width: 90%;
+}
 
-  .card-img {
-    width: 100%;
-    height: auto;
-  }
+/* Footer icons in a single row */
+.footer-icons {
+  flex-wrap: nowrap; /* prevent wrapping */
+  justify-content: center; /* center horizontally */
+  gap: 20px;
+  margin-top: 30px; /* adjust vertical spacing */
+}
 
-  /* Text scaling */
-  .a-content p,
-  .c-content p,
-  .c-content2 p,
-  .c-content3 p,
-  .t-content p,
-  .t-content2,
-  .maarte-subtext,
-  .kit-text {
-    font-size: 16px;
-    padding: 0 10px;
-  }
-
-  /* Buttons & images */
-  .download-btn img,
-  .download-btn2 img,
-  .c-btn img,
-  .custom-email-btn img,
-  .custom-email-btn2 img {
-    width: 100%;
-    max-width: 200px;
-  }
-
-  /* Hide side background images to prevent overflow */
-  .side-bg.left,
-  .side-bg.right {
-    display: none;
-  }
-
-  /* Footer adjustments */
-  .footer p {
-    margin: 120px auto 0;
-    font-size: 14px;
-  }
-
-  .footer-icons img {
-    max-width: 50px;
-  }
+.footer-icons img {
+  max-width: 50px; /* scale icons */
+  height: auto;
+}
 
   /* Ensure no horizontal scroll */
   body {
