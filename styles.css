@@ -10,6 +10,7 @@
 }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   font-family: Arial, sans-serif;
   cursor: url('images/paw-cursor.png'), auto;
@@ -928,13 +929,18 @@ header nav {
   transform: scale(1.05);
 }
 
+/* ============================================
+   FEATURE WRAPPER
+   ============================================ */
 .feature-wrapper {
-  position: relative;          
+  position: relative;          /* needed for stacking feature boxes */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  padding: 0 20px;
+  margin-top: 80px;
+  width: 100%;
+  overflow: hidden;            /* prevents any horizontal scroll */
+  padding: 0 50px;             /* optional padding so sides are partially visible */
 }
 
 /* Feature boxes on top */
@@ -944,40 +950,8 @@ header nav {
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
-  z-index: 2;
+  z-index: 2;                  /* ensure boxes appear on top of side images */
 }
-
-/* Side background images */
-.side-bg {
-  position: absolute;          
-  width: 500px;                /* slightly smaller to prevent overflow */
-  height: auto;
-  z-index: 1;                  
-  pointer-events: none;        
-  animation: sway-rotate 8s ease-in-out infinite;
-}
-
-/* Left / Right placement */
-.side-bg.left {
-  left: -280px;                 /* slightly off-screen, but minimal */
-  top: -40%;
-}
-
-.side-bg.right {
-  right: -30px;                /* slightly off-screen, but minimal */
-  top: 35%;                    /* pushed down more */
-}
-
-/* Sway + rotate animation with less rotation */
-@keyframes sway-rotate {
-  0%   { transform: translateX(0) rotate(0deg); }
-  25%  { transform: translateX(15px) rotate(1deg); }
-  50%  { transform: translateX(0) rotate(0deg); }
-  75%  { transform: translateX(-15px) rotate(-1deg); }
-  100% { transform: translateX(0) rotate(0deg); }
-}
-
-
 
 /* ============================================
    FOOTER
@@ -1031,3 +1005,201 @@ header nav {
 /* ============================================
    END OF STYLESHEET
    ============================================ */
+   /* ============================================
+   MOBILE RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Medium tablets */
+@media (max-width: 1024px) {
+  /* Hero & logos */
+  .hero-logo img,
+  .chero-logo img,
+  .maarte-logo img,
+  .maarte-text img {
+    max-width: 90%;
+  }
+
+  /* Feature cards & boxes */
+  .features-cards,
+  .cards-section,
+  .feature-boxes,
+  .screenshot-cards {
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .feature-card,
+  .card {
+    max-width: 240px;
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Text scaling */
+  .a-content p,
+  .c-content p,
+  .c-content2 p,
+  .c-content3 p,
+  .t-content p,
+  .t-content2,
+  .maarte-subtext,
+  .kit-text {
+    font-size: 20px;
+    padding: 0 15px;
+  }
+
+  /* Buttons & images */
+  .download-btn img,
+  .download-btn2 img,
+  .c-btn img {
+    max-width: 300px;
+  }
+
+  /* Footer adjustments */
+  .footer p {
+    margin: 200px auto 0;
+    font-size: 18px;
+  }
+
+  .footer-icons img {
+    max-width: 70px;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .hero-logo img,
+  .chero-logo img,
+  .maarte-logo img,
+  .maarte-text img {
+    max-width: 95%;
+  }
+
+  .features-cards,
+  .cards-section,
+  .feature-boxes,
+  .screenshot-cards {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .feature-card,
+  .card {
+    max-width: 220px;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .a-content p,
+  .c-content p,
+  .c-content2 p,
+  .c-content3 p,
+  .t-content p,
+  .t-content2,
+  .maarte-subtext,
+  .kit-text {
+    font-size: 18px;
+  }
+
+  .download-btn img,
+  .download-btn2 img,
+  .c-btn img {
+    max-width: 250px;
+  }
+
+  .screenshot-cards {
+    gap: 30px;
+  }
+
+  .footer p {
+    margin: 150px auto 0;
+    font-size: 16px;
+  }
+
+  .footer-icons img {
+    max-width: 60px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  /* Hero & logos */
+  .hero-logo img,
+  .chero-logo img,
+  .maarte-logo img,
+  .maarte-text img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Feature cards & boxes */
+  .features-cards,
+  .cards-section,
+  .feature-boxes,
+  .screenshot-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature-card,
+  .card {
+    width: 90%;
+    max-width: 180px;
+    padding: 10px;
+  }
+
+  .feature-boxes .feature-png {
+    max-width: 90%;
+  }
+
+  .card-img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Text scaling */
+  .a-content p,
+  .c-content p,
+  .c-content2 p,
+  .c-content3 p,
+  .t-content p,
+  .t-content2,
+  .maarte-subtext,
+  .kit-text {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  /* Buttons & images */
+  .download-btn img,
+  .download-btn2 img,
+  .c-btn img,
+  .custom-email-btn img,
+  .custom-email-btn2 img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* Hide side background images to prevent overflow */
+  .side-bg.left,
+  .side-bg.right {
+    display: none;
+  }
+
+  /* Footer adjustments */
+  .footer p {
+    margin: 120px auto 0;
+    font-size: 14px;
+  }
+
+  .footer-icons img {
+    max-width: 50px;
+  }
+
+  /* Ensure no horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+}
