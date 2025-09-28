@@ -1,0 +1,1033 @@
+/* ============================================
+   GLOBAL STYLES & FONTS
+   ============================================ */
+@font-face {
+  font-family: "Bantayog-Regular";
+  src: url("fonts/Bantayog-Regular.woff2") format("woff2"),
+       url("fonts/Bantayog-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  cursor: url('images/paw-cursor.png'), auto;
+}
+
+/* ============================================
+   ANIMATIONS (Consolidated Keyframes)
+   ============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes wiggle-title {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ============================================
+   HEADER & NAVBAR
+   ============================================ */
+header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  padding: 10px 20px;
+  border-radius: 20px;
+  z-index: 1000;
+  transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+header nav {
+  display: flex;
+  padding-top: 20px;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item {
+  max-height: 25px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  transform: scale(1.05);
+}
+
+.nav-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-image {
+  max-height: 40px;
+}
+
+/* ============================================
+   FLOATING LOGO
+   ============================================ */
+#floating-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+#floating-logo img {
+  max-height: 70px;
+}
+
+#logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+}
+
+#logo {
+  max-height: 60px;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================
+   HERO SECTIONS (Common)
+   ============================================ */
+.h-hero,
+.a-hero,
+.c-hero {
+  margin-top: 0;
+  height: 100vh;
+  text-align: center;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Specific hero backgrounds */
+.h-hero {
+  background: url("images/RH-BG1.png") no-repeat center center;
+  background-size: cover;
+  background-position: center 33%;
+}
+
+.a-hero {
+  background: url("images/RH-BG3.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+
+.c-hero {
+  background: url("images/RH-BG5.png") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Hero logos */
+.hero-logo,
+.chero-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-logo img {
+  max-width: 1300px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.chero-logo img {
+  max-width: 1100px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* ============================================
+   SCROLL BACKGROUND SECTIONS (Common)
+   ============================================ */
+.scroll-bg,
+.a-scroll-bg,
+.c-scroll-bg,
+.c-content3 {
+  min-height: 100vh;
+  background-color: #000;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Specific backgrounds */
+.scroll-bg {
+  background: url("images/RH-BG2.png") no-repeat center center;
+  padding: 50px;
+}
+
+.scroll-bg .content {
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+
+.a-scroll-bg {
+  background: url("images/RH-BG4.png") no-repeat center center;
+  padding: 60px 20px;
+}
+
+.c-scroll-bg {
+  background: url("images/RH-BG4.png") no-repeat center center;
+  padding: 30px 10px;
+}
+
+.c-content3 {
+  background: url("images/RH-BG4.png") no-repeat center center;
+  padding: 70px 10px;
+}
+
+/* Content text styles (common) */
+.a-content p,
+.a-content2 p,
+.a-content3 p,
+.a-content4 p,
+.c-content p,
+.c-content2 p,
+.c-content3 p,
+.new-section-content p {
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #1f1402;
+  text-align: center;
+  margin: 0 auto 40px;
+}
+
+/* Specific adjustments */
+.a-content p {
+  max-width: 600px;
+}
+
+.a-content2 p {
+  max-width: 600px;
+  margin: 50px auto 0;
+}
+
+.a-content3 p {
+  max-width: 650px;
+  margin: 30px auto 0;
+}
+
+.a-content4 p {
+  max-width: 500px;
+  margin: 30px auto 0;
+}
+
+.c-content p {
+  max-width: 660px;
+}
+
+.c-content2 p {
+  max-width: 660px;
+  margin: -175px auto 40px;
+}
+
+.c-content3 p {
+  max-width: 660px;
+  margin-top: 50px;
+}
+
+/* ============================================
+   INDEX-SPECIFIC STYLES
+   ============================================ */
+.features {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.features-title img {
+  max-width: 430px;
+  margin: 0 auto 60px;
+  display: block;
+  animation: wiggle-title 3s ease-in-out infinite;
+}
+
+.features-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  max-width: 300px;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  animation: none;
+  transform: translateY(-20px) scale(1.05);
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.download-btn img {
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+.download-btn:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* Scrolling Divider */
+.scrolling-divider {
+  width: 100%;
+  background-color: #9e896a;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 20px 0;
+}
+
+.scrolling-text {
+  display: inline-block;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 100%;
+  animation: scrollText 15s linear infinite;
+  letter-spacing: 3px;
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+}
+
+/* New Section */
+.new-section {
+  background-color: #f4f3e9;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.new-section-content p {
+  line-height: 1.1;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.whats-rh-title img {
+  max-width: 670px;
+  margin: 0 auto 60px;
+  display: block;
+}
+
+.feature-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 60px 20px;
+}
+
+.feature-boxes .feature-png {
+  max-width: 550px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.feature-boxes .feature-png:hover {
+  animation: none;
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* ============================================
+   ABOUT-SPECIFIC STYLES
+   ============================================ */
+.choices-title img {
+  max-width: 540px;
+  width: 100%;
+  display: block;
+  margin: 10px auto;
+}
+
+.about-texts img {
+  max-width: 350px;
+  width: 100%;
+  display: block;
+  margin: 40px auto;
+}
+
+.trailer-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.trailer-frame {
+  max-width: 830px;
+  display: block;
+}
+
+.play-btn {
+  position: absolute;
+  top: 41%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.play-btn img {
+  max-width: 80px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.play-btn:hover img {
+  transform: scale(1.2);
+}
+
+.trailer-text {
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 20px;
+  margin-top: 30px;
+  color: #ccc7c2;
+  letter-spacing: 2px;
+}
+
+.a-contentbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  text-align: center;
+}
+
+.a-contentbox a {
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.a-contentbox a img {
+  max-width: 780px;
+  width: 100%;
+  height: auto;
+  margin-top: 3px;
+  animation: pulse 3s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.a-contentbox a:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+.screenshot-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 80px;
+  margin: 60px 0;
+}
+
+.screenshot-cards img {
+  max-width: 270px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.screenshot-cards img:hover {
+  transform: translateY(-20px) scale(1.05);
+}
+
+.download-btn2 {
+  display: inline-block;
+  margin-top: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.download-btn2 img {
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+.download-btn2:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+
+/* ============================================
+   COMMUNITY-SPECIFIC STYLES
+   ============================================ */
+.c-hero {
+  margin-top: 0;
+  height: 100vh;
+  text-align: center;
+  background: url("images/RH-BG5.png") no-repeat center center;
+  background-size: cover;
+  background-color: #000; /* Fallback if image fails */
+  background-position: center; /* Fixed: Added semicolon for parsing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Centered logo in hero section */
+.chero-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* fills the hero section */
+}
+
+.chero-logo img {
+  max-width: 1100px; /* adjust size */
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.c-scroll-bg {
+  display: flex;
+  background: url("images/RH-BG4.png") no-repeat center center;
+  background-size: cover; /* ✅ makes the bg cover the entire section */
+  background-color: #000; /* Fallback if image fails */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 10px;
+  min-height: 100vh; /* ✅ ensures section is at least full screen height */
+}
+
+.c-content p { 
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.4;
+  max-width: 660px;
+  margin: 0 auto 40px; /* centers + adds space below */
+  color: #1f1402;
+}
+
+.c-btn {
+  display: inline-block;
+  margin-top: -5px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.c-btn img {
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.c-btn:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.c-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: -5px auto 20px;
+  text-align: center;
+}
+
+.c-carousel img {
+  width: 100%;
+  display: none;
+  border-radius: 20px;
+  transition: opacity 0.5s ease; /* smooth fade animation */
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c-carousel img.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+
+/* Dots */
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.carousel-dots .dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+  background-color: #333;
+}
+
+.c-content2 {
+  margin-top: 0;
+  height: 100vh;
+  text-align: center;
+  background: url("images/RH-BG6.png") no-repeat center center;
+  background-size: cover;
+  background-color: #000;
+  background-position: center;
+  padding-top: 100px; /* Prevents overlap with previous section – unchanged */
+  display: flex; /* Added: Makes parent a flex container for vertical centering */
+  flex-direction: column; /* Stacks children vertically – unchanged behavior */
+  justify-content: center; /* Centers all children (header + text) vertically in the available space */
+  align-items: center; /* Ensures horizontal centering – reinforces existing text-align */
+}
+
+.c-content2 p { 
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.4;
+  max-width: 660px;
+  margin: -175px auto 40px; /* Unchanged: Pulls text up as original */
+  color: #1f1402;
+}
+
+/* Centered logo in header – unchanged, but now benefits from parent flex */
+.c-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 37%; /* Unchanged: Relative to parent */
+}
+
+.c-header img {
+  max-width: 600px; /* Unchanged */
+  margin-top: -310px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+
+.c-content3 {
+  display: flex;
+  background: url("images/RH-BG4.png") no-repeat center center;
+  background-size: cover; /* ✅ makes the bg cover the entire section */
+  background-color: #000; /* Fallback if image fails */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 10px;
+  min-height: 100vh; /* ✅ ensures section is at least full screen height */
+}
+
+.c-header2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%; /* keeps the height */
+  margin-top: 50px; /* adjust the space as needed */
+}
+
+.c-header2 img {
+  max-width: 600px; /* adjust size */
+}
+
+.c-torta,
+.c-team {
+  flex: 1 1 300px; /* allows resizing */
+  margin-top: 50px;
+  text-align: center;
+}
+
+.c-torta img {
+  max-width: 75%;
+  animation: float 3s ease-in-out infinite; /* floating animation */
+}
+
+.c-team img {
+  margin-top: 30px;
+  max-width: 75%;
+  animation: float 3s ease-in-out infinite; /* floating animation */
+}
+
+.c-content3 p {
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.4;
+  max-width: 660px;
+  margin-top: 50px;
+  color: #1f1402;
+}
+
+.c-content3 p.c-credit {
+  font-size: 14px;       /* smaller font */
+  color: #9c9b9bcc;           /* lighter gray */
+  margin-top: 15px;
+  max-width: 800px;
+  font-style: italic;
+}
+
+.c-content3 p.c-note {
+  font-size: 14px;       /* smaller font */
+  color: #9c9b9bcc;           /* lighter gray */
+  margin-top: 50px;
+  max-width: 800px;
+  font-style: italic;
+}
+
+/* ============================================
+   thanks page
+   ============================================ */
+
+.hero-logo {
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+}
+
+.hero-subtext {
+  margin-top: 60px;
+  font-size: 2.5rem;
+  color: #fff; /* white, since background is dark */
+  text-align: center;
+  font-family: "Bantayog-Regular", Arial, sans-serif; /* use Bantayog font */
+  letter-spacing: 2px;
+  animation: pulse 3s ease-in-out infinite; /* optional for fun */
+}
+
+/* Section background */
+.t-scroll-bg {
+  min-height: 100vh;
+  background: url("images/RH-BG7.png") no-repeat center center;
+  background-size: cover;
+  background-color: #ffffff; /* fallback */
+  display: flex;
+  flex-direction: column;   /* stack items vertically */
+  align-items: center;      /* center horizontally */
+  justify-content: flex-start;
+  padding-top: 100px;       /* adjust spacing from top */
+  padding-bottom: 150px;
+  text-align: center;
+}
+
+/* Logo */
+.maarte-logo img {
+  max-width: 130px;
+  width: 100%;
+  height: auto;
+  transform: translateY(-100px); /* pushes it up without negative margin */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Text logo */
+.maarte-text img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin-top: -5px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Subtext */
+.maarte-subtext,
+.t-content p {
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 28px;   /* balanced size */
+  color: #1f1402;
+  margin-top: 15px;
+}
+
+.cards-section {
+  display: flex;
+  justify-content: center;
+  gap: 35px; /* spacing between cards */
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the button relative to the card */
+  gap: 12px;
+}
+
+.card {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 260px;       /* card container width */
+  padding: 20px;      /* smaller padding so images align better */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img {
+  width: 100%;        /* make image fit card */
+  height: auto;
+  display: block;
+  margin: 0 auto;     /* center the image */
+}
+
+.custom-email-btn {
+  width: 160px;       /* smaller so it matches card width */
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.custom-email-btn:hover {
+  transform: scale(1.05); /* subtle hover zoom */
+}
+
+.t-content2 {
+  max-width: 1100px; /* keeps text from being too wide */
+  margin: 40px auto 0 auto; /* centers and adds spacing from cards */
+  text-align: center;
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 27px;
+  line-height: 1.6;
+  color: #1f1402; /* same dark brown shade */
+  padding: 0 20px; /* small side padding for mobile */
+}
+
+.survey-section {
+  min-height: 100vh;
+  text-align: center;
+  background: url("images/RH-BG6.png") no-repeat center center;
+  background-size: cover;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px; /* optional side padding */
+}
+
+.t-header {
+  display: inline-block;      /* allows transform/hover properly */
+  max-width: 930px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.t-header img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.t-header:hover {
+  transform: scale(1.05);   /* subtle zoom */
+}
+
+.keep-in-touch-section {
+  min-height: 80vh;
+  background: url("images/RH-BG8.png") no-repeat center center;
+  background-size: cover;
+  background-color: #1f1402; /* fallback */
+  display: flex;
+  justify-content: center;   /* vertical centering */
+  align-items: center;       /* horizontal centering */
+  text-align: center;
+  padding: 100px;           /* remove top/bottom padding for perfect centering */
+}
+
+.kit-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* horizontal centering */
+  justify-content: center;   /* vertical centering within content */
+}
+
+.kit-img {
+  max-width: 800px;          /* smaller image */
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto;
+}
+
+.kit-img:hover {
+  transform: scale(1.05);   /* subtle zoom */
+}
+
+.kit-text {
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 28px;
+  color: #1f1402;
+  margin-top: 50px;
+}
+
+.custom-email-btn2 {
+  margin-top: 10px;
+  width: 200px;               /* smaller button width */
+  display: inline-block;     /* allow width to work */
+  transition: transform 0.2s ease;
+}
+
+.custom-email-btn2 img {
+  width: 100%;               /* make the image fit the button width */
+  height: auto;
+  display: block;
+}
+
+.custom-email-btn2:hover {
+  transform: scale(1.05);
+}
+
+.feature-wrapper {
+  position: relative;          
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+/* Feature boxes on top */
+.feature-boxes {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Side background images */
+.side-bg {
+  position: absolute;          
+  width: 500px;                /* slightly smaller to prevent overflow */
+  height: auto;
+  z-index: 1;                  
+  pointer-events: none;        
+  animation: sway-rotate 8s ease-in-out infinite;
+}
+
+/* Left / Right placement */
+.side-bg.left {
+  left: -280px;                 /* slightly off-screen, but minimal */
+  top: -40%;
+}
+
+.side-bg.right {
+  right: -30px;                /* slightly off-screen, but minimal */
+  top: 35%;                    /* pushed down more */
+}
+
+/* Sway + rotate animation with less rotation */
+@keyframes sway-rotate {
+  0%   { transform: translateX(0) rotate(0deg); }
+  25%  { transform: translateX(15px) rotate(1deg); }
+  50%  { transform: translateX(0) rotate(0deg); }
+  75%  { transform: translateX(-15px) rotate(-1deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: url("images/footer-bg.png") no-repeat center top;
+  background-size: cover;
+  margin-top: -70px;
+  padding: 100px 60px;
+  text-align: center;
+  background-color: #f4f3e9;
+}
+
+.footer p {
+  font-family: "Bantayog-Regular", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 250px auto 0;
+}
+
+
+.footer a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #f2d694;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.footer-icons img {
+  max-width: 80px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer-icons img:hover {
+  transform: scale(1.1);
+}
+
+
+/* ============================================
+   END OF STYLESHEET
+   ============================================ */
